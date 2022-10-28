@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css" integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>RSA encrypt online</title>
+</head>
+<body>
+    
+    <center class="d-flex m-3 justify-content-between">
+        <h2>RSA encrypt</h2>
+        <a href="https://rsa-decrypt.netlify.app" class="btn btn-danger">RSA decrypt</a>
+    </center>
+    <div class="container">
+        <!-- p and q start -->
+        <div class="row mt-3">
+            <div class="col-6">
+                <p>p- tub son</p>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">p</span>
+                    </div>
+                    <input type="text" class="form-control" id="pnumber" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+            </div>
+            <div class="col-6">
+                <p>q- tub son</p>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">q</span>
+                    </div>
+                    <input type="text" class="form-control" id="qnumber" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+            </div>
+        </div>
+
+        <!-- errormessage -->
+        <div class="row errormessage1">
+            <div class="col-12">
+                <p class="text-danger" id="error1"></p>
+            </div>
+        </div>
+        <!-- errormessage -->
+        <!-- p and q end -->
+
+<hr>        
+
+        <!-- n start -->
+            <div class="row">
+                <div class="col-12">
+                    <p>n = p*q</p>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">n = </span>
+                        </div>
+                        <input type="text" class="form-control" id = "nnumber" aria-label="Small" aria-describedby="inputGroup-sizing-sm" disabled>
+                      </div>
+                </div>
+            </div>
+        <!-- n end -->
+
+<hr>        
+
+        <!-- fn start -->
+            <div class="row">
+                <div class="col-12">
+                    <p>fn = (p-1)(q-1)</p>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">fn = </span>
+                        </div>
+                        <input type="text" class="form-control" id = "fnnumber" aria-label="Small" aria-describedby="inputGroup-sizing-sm" disabled>
+                      </div>
+                </div>
+            </div>
+        <!-- n end -->
+<hr>
+
+        <!-- e and d start -->
+        <div class="row">
+            <div class="col-12">
+                <p>fn soni bilan o'zaro tub e son tanlang</p>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">e</span>
+                    </div>
+                    <input type="text" class="form-control" id = "enumber"aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
+        </div>
+        <!-- errormessage -->
+        <div class="row errormessage2">
+            <div class="col-12">
+                <p class="text-danger" id="error2">error2</p>
+            </div>
+        </div>
+        <!-- errormessage -->
+        <!-- e end -->
+<hr>
+        <!--  -->
+        <div class="row">
+            <div class="col-12">
+                <p>n>d>1</p>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">d</span>
+                    </div>
+                    <select class="form-select" id="dvalue" aria-label="Default select example" >
+                        <option value="" selected>Tanlang</option>
+                    </select>
+                  </div>
+            </div>            
+        </div>
+
+        <!-- e and d end -->
+
+        
+        <!-- generate button start-->
+        <!-- errormessage start -->
+            <div class="row errormessage3">
+                <div class="col-12">
+                    <p class="text-danger" id="error3">error3</p>
+                </div>
+            </div>
+        <!-- errormessage end -->
+
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary" id="generate" disabled>Generate key</button>
+            </div>
+        </div>
+        <!-- generate button end-->
+        
+<hr>
+        <!-- keys start -->
+        <div class="row">
+            <div class="col-6">
+                <p>Public key</p>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">key</span>
+                    </div>
+                    <input type="text" class="form-control" id="publickey" aria-label="Small" aria-describedby="inputGroup-sizing-sm" disabled>
+                  </div>
+            </div>
+            <div class="col-6">
+                <p>Private key</p>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">key</span>
+                    </div>
+                    <input type="text" class="form-control" id="privatekey" aria-label="Small" aria-describedby="inputGroup-sizing-sm" disabled>
+                  </div>
+            </div>
+        <!-- keys end -->
+
+<hr>
+            <center>
+                <h3>Encrypt start</h3>
+            </center>
+        <!-- start encrypt -->
+            <div id="box" class="mt-3">
+               <div id="boxelement">
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <input type="text" class="form-control en" id="1e" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Soningiz" onkeyup="encrypt(this)">  
+                        </div>
+                        <div class="col-4">
+                            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" disabled value="encrypt=>">
+                        </div>
+                        <div class="col-4">
+                            <input type="text" class="form-control 1e" aria-label="Small" aria-describedby="inputGroup-sizing-sm" disabled>
+                        </div>
+                    </div>
+               </div>
+               <center class="mt-3 mb-3">
+                     <button class="btn btn-primary" id="add">+</button>
+               </center>
+            </div>
+        <!-- end encrypt -->
+    </div>
+
+    <marquee behavior="alternate" direction="left"><a href="https://t.me/abdurakhmon_04">Abdurakhmon_04</a></marquee>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js" integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

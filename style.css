@@ -1,0 +1,7 @@
+.errormessage1, .errormessage2, .errormessage3{
+    display: none;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
